@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="flight_from">Вылет из</string>
+    <string name="country_city">Страна, город</string>
+    <string name="dates">Даты</string>
+    <string name="number_of_nights">Кол-во ночей</string>
+    <string name="hotel">Отель</string>
+    <string name="room_type">Номер</string>
+    <string name="meal">Питание</string>
+    <string name="info_purchaser">Информация о покупателе</string>
+    <string name="purchaser_disclaimer">Эти данные никому не передаются. После оплаты мы вышли чек на указанный вами номер и почту</string>
+    <string name="name_customer">Имя</string>
+    <string name="surname">Фамилия</string>
+    <string name="date_birthday">Дата Рождения</string>
+    <string name="citizenship">Гражданство</string>
+    <string name="passport_due">Срок действия загранпаспорта</string>
+    <string name="add_tourist">Добавить туриста</string>
+    <string name="tour">Тур</string>
+    <string name="fuel_surcharge">Топливный сбор</string>
+    <string name="service_charge">Сервисный сбор</string>
+    <string name="to_payment">К оплате</string>
+    <string name="your_order_in_work">Ваш заказ принят в работу</string>
+    <string name="order_text_first">Подтверждение заказа</string>
+    <string name="order_text_second">может занять некоторое время (от 1 часа до суток). Как только мы получим ответ от туроператора, вам на почту придет уведомление.</string>
+    <string name="awesome">Супер!</string>
+    <string name="order_paid">Заказ оплачен</string>
+    <string name="booking">Бронирование</string>
+    <string name="nights">ночей</string>
+    <string name="tourist">турист</string>
+    <string name="fill_num_phone">Заполните номер телефона!</string>
+    <string name="fill_email">Вы неправильно заполнили почту!</string>
+    <string name="fill_tourist">Проверьте данные туристов! Вы либо не заполнили все данные или заполнили некорректно!</string>
+    <string name="pay">Оплатить</string>
+</resources>
