@@ -12,6 +12,7 @@ We have two feature, presentation layer: hotel_info that has 2 screens - Hotel S
 We create di's (dagger-hilt)  in :core:data and :hotel_info:domain:, :booking:domain. 
 
 [hotelAppStructure.pdf](https://github.com/MelonLemon/HotelApp/files/12513804/hotelAppStructure.pdf)
+
 ![hotelAppStr](https://github.com/MelonLemon/HotelApp/assets/26432711/a157ef6e-2fcb-41d5-90ab-7b13e697c13b)
 
 
