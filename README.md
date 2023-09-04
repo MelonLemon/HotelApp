@@ -11,11 +11,7 @@ https://github.com/MelonLemon/HotelApp/assets/26432711/09022eef-e23b-45e8-93c0-c
 We have two feature, presentation layer: hotel_info that has 2 screens - Hotel Screen and Room Screen; booking - has Booking Screen and Payment Screen.
 We create di's (dagger-hilt)  in :core:data and :hotel_info:domain:, :booking:domain. 
 
-[hotelAppStructure.pdf](https://github.com/MelonLemon/HotelApp/files/12513804/hotelAppStructure.pdf)
-
-![hotelAppStr](https://github.com/MelonLemon/HotelApp/assets/26432711/828af7b4-bc42-4dc7-a36d-f97f6d1a001c)
-
-
+![hotelApp_diagram](https://github.com/MelonLemon/HotelApp/assets/26432711/3eb2de10-942e-42ac-87de-058234b126e5)
 
 # Navigation
 For navigation, I create two graphs for each feature: the hotel graph and the booking graph. Navigation between screens of the same feature is implemented inside graph. 
