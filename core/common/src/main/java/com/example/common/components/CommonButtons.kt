@@ -22,6 +22,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.designsystem.theme.HotelAppTheme
+import com.example.designsystem.theme.theme_figma_primary
 
 @Composable
 fun PrimaryButton(
@@ -29,12 +30,13 @@ fun PrimaryButton(
     onBtnClick: () -> Unit
 ) {
     Button(
-       onClick =  onBtnClick,
+        modifier = Modifier.padding(vertical = 5.dp, horizontal = 10.dp),
+        onClick =  onBtnClick,
         colors = ButtonDefaults.buttonColors(
-            containerColor = MaterialTheme.colorScheme.primary,
+            containerColor = theme_figma_primary,
             contentColor = MaterialTheme.colorScheme.onPrimary
         ),
-        shape = MaterialTheme.shapes.large
+        shape = MaterialTheme.shapes.medium
     ){
         Text(
             modifier = Modifier.fillMaxWidth(),
@@ -52,17 +54,17 @@ fun InfoButton(
 ) {
     Row(
         modifier = Modifier.clip(MaterialTheme.shapes.extraSmall).background(
-            MaterialTheme.colorScheme.primary.copy(alpha=0.1f)
+            theme_figma_primary.copy(alpha=0.1f)
         ).clickable { onBtnClick() }.padding(top=5.dp, bottom = 5.dp, start=10.dp, end=2.dp)
     ){
         Text(
             text=text,
-            color=MaterialTheme.colorScheme.primary
+            color=theme_figma_primary
         )
         Icon(
             imageVector = Icons.Default.KeyboardArrowRight,
             contentDescription = null,
-            tint=MaterialTheme.colorScheme.primary
+            tint=theme_figma_primary
         )
     }
 }

@@ -1,6 +1,7 @@
 package com.example.common.components
 
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -44,7 +45,13 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.example.common.R
 import com.example.designsystem.theme.HotelAppTheme
-
+import com.example.designsystem.theme.theme_figma_onBackground
+import com.example.designsystem.theme.theme_figma_onSurfaceVariant
+import com.example.designsystem.theme.theme_figma_primary
+import com.example.designsystem.theme.theme_figma_surface
+import com.example.designsystem.theme.theme_figma_surfaceVarient
+import com.example.designsystem.theme.theme_figma_tint
+import com.example.designsystem.theme.theme_figma_tint_transparent
 
 
 @Composable
@@ -57,7 +64,7 @@ fun BackToNavigationRow(
         modifier = modifier
             .fillMaxWidth()
             .background(
-                MaterialTheme.colorScheme.background
+                theme_figma_surface
             ),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Start
@@ -71,14 +78,14 @@ fun BackToNavigationRow(
             Icon(
                 imageVector = Icons.Default.KeyboardArrowLeft,
                 contentDescription = null,
-                tint= MaterialTheme.colorScheme.onBackground
+                tint= theme_figma_onBackground
             )
         }
 
         Text(
             modifier = Modifier.fillMaxWidth(),
             text = text,
-            color = MaterialTheme.colorScheme.onBackground,
+            color = theme_figma_onBackground,
             textAlign = TextAlign.Center,
             style = MaterialTheme.typography.titleMedium
         )
@@ -99,17 +106,29 @@ fun PhotosDisplay(
         HorizontalPager(
             state = pagerState
         ) { photo ->
-            AsyncImage(
-                model = ImageRequest.Builder(LocalContext.current)
-                    .data(listOfPhotosString[photo])
-                    .crossfade(true)
-                    .build(),
-                contentDescription = null,
-                contentScale = ContentScale.Crop,
-                modifier = Modifier
-                    .height(257.dp)
-                    .clip(MaterialTheme.shapes.small)
-            )
+            if(listOfPhotosString.isNotEmpty()){
+                AsyncImage(
+                    model = ImageRequest.Builder(LocalContext.current)
+                        .data(listOfPhotosString[photo])
+                        .crossfade(true)
+                        .build(),
+                    contentDescription = null,
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier
+                        .height(257.dp)
+                        .clip(MaterialTheme.shapes.small)
+                )
+            } else {
+                Image(
+                    painter = painterResource(id = R.drawable.placeholder),
+                    contentDescription = "Photo File",
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier
+                        .height(200.dp)
+                        .clip(MaterialTheme.shapes.small)
+                )
+            }
+
         }
         PageIndicatorBox(
             modifier = Modifier.align(Alignment.BottomCenter),
@@ -127,9 +146,11 @@ fun PageIndicatorBox(
     pagerState: PagerState
 ) {
     Row(
-        modifier=modifier.clip(MaterialTheme.shapes.extraSmall)
-            .padding(vertical = 10.dp, horizontal = 5.dp)
-            .background(MaterialTheme.colorScheme.background),
+        modifier=modifier
+            .padding(vertical = 8.dp)
+            .clip(MaterialTheme.shapes.medium)
+            .background(theme_figma_surface)
+            .padding(vertical = 5.dp, horizontal = 6.dp),
         horizontalArrangement = Arrangement.Center
     ) {
         repeat(pageCount) { iteration ->
@@ -161,7 +182,7 @@ fun BasicHotelInfo(
         Row(
             modifier = Modifier
                 .clip(MaterialTheme.shapes.small)
-                .background(Color(0xFFFFA800).copy(alpha = 0.2f))
+                .background(theme_figma_tint_transparent)
                 .padding(vertical = 5.dp, horizontal = 10.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(2.dp)
@@ -169,23 +190,21 @@ fun BasicHotelInfo(
             Icon(
                 imageVector = Icons.Default.Star,
                 contentDescription = null,
-                tint=Color(0xFFFFA800)
+                tint=theme_figma_tint
             )
             Text(
                 text=rankingText,
-                color=Color(0xFFFFA800),
+                color=theme_figma_tint,
                 style = MaterialTheme.typography.titleMedium
             )
         }
-        Text(
-            text=name,
-            color=MaterialTheme.colorScheme.onBackground,
-            style = MaterialTheme.typography.titleLarge
+        TitleText(
+            text=name
         )
         Text(
             modifier=Modifier.clickable { onPlaceClick() },
             text=place,
-            color=MaterialTheme.colorScheme.primary,
+            color=theme_figma_primary,
             style = MaterialTheme.typography.labelLarge
         )
     }
@@ -204,7 +223,7 @@ fun BoldTextWithSubtitle(
         Text(
             modifier = Modifier.alignByBaseline(),
             text=boldText,
-            color=MaterialTheme.colorScheme.onBackground,
+            color=theme_figma_onBackground,
             style = MaterialTheme.typography.headlineMedium.copy(
                 fontWeight = FontWeight.Bold
             )
@@ -212,7 +231,7 @@ fun BoldTextWithSubtitle(
         Text(
             modifier = Modifier.alignByBaseline(),
             text=subtitle,
-            color=MaterialTheme.colorScheme.outline,
+            color=theme_figma_onSurfaceVariant,
             style = MaterialTheme.typography.bodyLarge
         )
     }
@@ -228,7 +247,7 @@ fun EmptyContainer(
         modifier = modifier.fillMaxWidth(),
         shape = MaterialTheme.shapes.medium,
         colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surface
+            theme_figma_surface
         )
     ){
         Box(
@@ -248,7 +267,7 @@ fun MarkedInfoDisplay(
         modifier = Modifier
             .drawBehind {
                 drawRoundRect(
-                    color = Color(0xFFFBFBFC),
+                    color = theme_figma_surfaceVarient,
                     size = this.size,
                     cornerRadius = CornerRadius(25f, 25f)
                 )
@@ -257,7 +276,7 @@ fun MarkedInfoDisplay(
         text=text,
         maxLines = 1,
         overflow = TextOverflow.Clip,
-        color = Color(0xFF828796),
+        color = theme_figma_onSurfaceVariant,
         style = MaterialTheme.typography.titleMedium,
     )
 }
@@ -268,8 +287,10 @@ fun TitleText(
 ) {
     Text(
         text=text,
-        color=MaterialTheme.colorScheme.onBackground,
-        style=MaterialTheme.typography.titleLarge
+        color=theme_figma_onBackground,
+        style=MaterialTheme.typography.titleLarge.copy(
+            fontWeight = FontWeight.Bold
+        )
     )
 }
 

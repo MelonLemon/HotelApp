@@ -1,6 +1,7 @@
 package com.example.common.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -21,11 +22,15 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.common.R
+import com.example.common.util.DateTransformation
+import com.example.common.util.MaskTransformation
 import com.example.common.util.dateFilter
 import com.example.common.util.isValidDate
 import com.example.common.util.isValidEmail
 import com.example.common.util.mobileNumberFilter
 import com.example.designsystem.theme.HotelAppTheme
+import com.example.designsystem.theme.theme_figma_background
+import com.example.designsystem.theme.theme_figma_error
 import kotlinx.coroutines.delay
 
 @Composable
@@ -34,9 +39,8 @@ fun RusPhoneNumberInput(
     onNameChanged: (String) -> Unit
 ) {
     TextField(
-        modifier = Modifier
-            .clip(MaterialTheme.shapes.medium)
-            .background(Color(0xFFF6F6F9)),
+        modifier = Modifier.fillMaxWidth()
+            .clip(MaterialTheme.shapes.medium),
         value = name,
         onValueChange = onNameChanged,
         label = {Text(text=stringResource(R.string.phone_number))},
@@ -45,10 +49,12 @@ fun RusPhoneNumberInput(
         colors = TextFieldDefaults.colors(
             focusedIndicatorColor = Color.Transparent,
             unfocusedIndicatorColor = Color.Transparent,
-            disabledIndicatorColor = Color.Transparent
+            disabledIndicatorColor = Color.Transparent,
+            focusedContainerColor =  theme_figma_background,
+            unfocusedContainerColor =  theme_figma_background
         ),
         prefix = { Text(text="+7 ", color = MaterialTheme.colorScheme.onBackground)},
-        visualTransformation = { mobileNumberFilter(it) }
+        visualTransformation = MaskTransformation()
     )
 }
 
@@ -58,13 +64,10 @@ fun MailInput(
     onNameChanged: (String) -> Unit,
     enableShowError: Boolean
 ) {
-    val isValid = isValidEmail(name)
+    val isValid = if(enableShowError) isValidEmail(name) else false
     TextField(
-        modifier = Modifier
-            .clip(MaterialTheme.shapes.medium)
-            .background(
-                if (!isValid && enableShowError)  Color(0xFFEB5757).copy(alpha = 0.15f) else Color(0xFFF6F6F9)
-            ),
+        modifier = Modifier.fillMaxWidth()
+            .clip(MaterialTheme.shapes.medium),
         value = name,
         onValueChange = { newName ->
             onNameChanged(newName)
@@ -75,7 +78,9 @@ fun MailInput(
         colors = TextFieldDefaults.colors(
             focusedIndicatorColor = Color.Transparent,
             unfocusedIndicatorColor = Color.Transparent,
-            disabledIndicatorColor = Color.Transparent
+            disabledIndicatorColor = Color.Transparent,
+            focusedContainerColor = if (enableShowError && !isValid) theme_figma_error else theme_figma_background,
+            unfocusedContainerColor = if (enableShowError && !isValid) theme_figma_error else theme_figma_background
         )
     )
 
@@ -89,11 +94,8 @@ fun NameInput(
     enableShowError: Boolean = false
 ) {
     TextField(
-        modifier = Modifier
-            .clip(MaterialTheme.shapes.medium)
-            .background(
-                if (name.isBlank() && enableShowError)  Color(0xFFEB5757).copy(alpha = 0.15f) else Color(0xFFF6F6F9)
-            ),
+        modifier = Modifier.fillMaxWidth()
+            .clip(MaterialTheme.shapes.medium),
         value = name,
         onValueChange = onNameChanged,
         label = {Text(text=label)},
@@ -102,7 +104,9 @@ fun NameInput(
         colors = TextFieldDefaults.colors(
             focusedIndicatorColor = Color.Transparent,
             unfocusedIndicatorColor = Color.Transparent,
-            disabledIndicatorColor = Color.Transparent
+            disabledIndicatorColor = Color.Transparent,
+            focusedContainerColor = if (enableShowError && name.isBlank()) theme_figma_error else theme_figma_background,
+            unfocusedContainerColor = if (enableShowError && name.isBlank()) theme_figma_error else theme_figma_background,
         )
     )
 }
@@ -114,13 +118,10 @@ fun DateInput(
     label: String,
     enableShowError: Boolean = false
 ) {
-    val isValid = isValidDate(name)
+    val isValid =  if(enableShowError) isValidDate(name) else false
     TextField(
-        modifier = Modifier
-            .clip(MaterialTheme.shapes.medium)
-            .background(
-                if (!isValid && enableShowError)  Color(0xFFEB5757).copy(alpha = 0.15f) else Color(0xFFF6F6F9)
-            ),
+        modifier = Modifier.fillMaxWidth()
+            .clip(MaterialTheme.shapes.medium),
         value = name,
         onValueChange = onNameChanged,
         label = {Text(text=label)},
@@ -129,9 +130,11 @@ fun DateInput(
         colors = TextFieldDefaults.colors(
             focusedIndicatorColor = Color.Transparent,
             unfocusedIndicatorColor = Color.Transparent,
-            disabledIndicatorColor = Color.Transparent
+            disabledIndicatorColor = Color.Transparent,
+            focusedContainerColor = if (enableShowError && !isValid) theme_figma_error else theme_figma_background,
+            unfocusedContainerColor = if (enableShowError && !isValid) theme_figma_error else theme_figma_background,
         ),
-        visualTransformation = { dateFilter(it) }
+        visualTransformation = DateTransformation()
     )
 }
 
@@ -139,58 +142,60 @@ fun DateInput(
 fun IntPassportInput(
     name: String = "",
     onNameChanged: (String) -> Unit,
+    label: String,
     enableShowError: Boolean = false
 ) {
     TextField(
-        modifier = Modifier
-            .clip(MaterialTheme.shapes.medium)
-            .background(
-                if ((name.isBlank() || name.length<9) && enableShowError)  Color(0xFFEB5757).copy(alpha = 0.15f) else Color(0xFFF6F6F9)
-            ),
+        modifier = Modifier.fillMaxWidth()
+            .clip(MaterialTheme.shapes.medium),
         value = name,
+        label = {Text(text=label)},
         onValueChange = onNameChanged,
         placeholder = { Text(text="", overflow = TextOverflow.Ellipsis, maxLines = 1) },
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
         colors = TextFieldDefaults.colors(
             focusedIndicatorColor = Color.Transparent,
             unfocusedIndicatorColor = Color.Transparent,
-            disabledIndicatorColor = Color.Transparent
+            disabledIndicatorColor = Color.Transparent,
+            focusedContainerColor = if (enableShowError && name.isBlank()) theme_figma_error else theme_figma_background,
+            unfocusedContainerColor = if (enableShowError && name.isBlank()) theme_figma_error else theme_figma_background
         )
     )
 }
 
 
-@Preview(showBackground = true)
-@Composable
-fun MailInputPreview() {
-    HotelAppTheme {
-        MailInput(
-            name="fghfh@gmail.com",
-            onNameChanged = { },
-            enableShowError = true
-        )
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun RusPhoneNumberInputPreview() {
-    HotelAppTheme {
-        RusPhoneNumberInput(
-            name="",
-            onNameChanged = { }
-        )
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DateInputPreview() {
-    HotelAppTheme {
-        DateInput(
-            name="",
-            onNameChanged = { },
-            label ="Дата Рождения"
-        )
-    }
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun MailInputPreview() {
+//    HotelAppTheme {
+//        MailInput(
+//            name="fghfh@gmail.com",
+//            onNameChanged = { },
+//            enableShowError = true
+//        )
+//    }
+//}
+//
+//@Preview(showBackground = true)
+//@Composable
+//fun RusPhoneNumberInputPreview() {
+//    HotelAppTheme {
+//        RusPhoneNumberInput(
+//            name="",
+//            onNameChanged = { }
+//        )
+//    }
+//}
+//
+//@Preview(showBackground = true)
+//@Composable
+//fun DateInputPreview() {
+//    HotelAppTheme {
+//        DateInput(
+//            name="12",
+//            onNameChanged = { },
+//            label ="Дата Рождения",
+//            enableShowError = true
+//        )
+//    }
+//}

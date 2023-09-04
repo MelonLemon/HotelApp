@@ -72,25 +72,25 @@ fun RoomInfoBlock(
 
 }
 
-@OptIn(ExperimentalFoundationApi::class)
-@Preview(showBackground = true)
-@Composable
-fun RoomInfoBlockPreview() {
-    HotelAppTheme {
-        val pagerState = rememberPagerState(pageCount = {
-            5
-        })
-        RoomInfoBlock(
-            listInfo = listOf(
-                "Всё включено",
-                "Кондиционер"),
-            listOfPhotosString = listOf("","a","ss","a","ss"),
-            pagerState = pagerState,
-            name ="Станданртный с видом на бассейн",
-            amountText = "186 600 Р",
-            additionalInfo = "за 7 ночей с перелётом",
-            onRoomBtnClick = { },
-            onRoomDetailsClick = { }
-        )
-    }
-}
+//@OptIn(ExperimentalFoundationApi::class)
+//@Preview(showBackground = true)
+//@Composable
+//fun RoomInfoBlockPreview() {
+//    HotelAppTheme {
+//        val pagerState = rememberPagerState(pageCount = {
+//            5
+//        })
+//        RoomInfoBlock(
+//            listInfo = listOf(
+//                "Всё включено",
+//                "Кондиционер"),
+//            listOfPhotosString = listOf("","a","ss","a","ss"),
+//            pagerState = pagerState,
+//            name ="Станданртный с видом на бассейн",
+//            amountText = "186 600 Р",
+//            additionalInfo = "за 7 ночей с перелётом",
+//            onRoomBtnClick = { },
+//            onRoomDetailsClick = { }
+//        )
+//    }
+//}

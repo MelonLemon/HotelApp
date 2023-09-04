@@ -8,6 +8,7 @@ class GetBookingInfo @Inject constructor(
     private val repository: BookingRepository
 ) {
     suspend operator fun invoke(): BookingInfo{
+
         return repository.getBookingInfo()
     }
 }

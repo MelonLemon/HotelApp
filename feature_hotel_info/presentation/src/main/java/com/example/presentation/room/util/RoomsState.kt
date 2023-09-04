@@ -1,6 +1,6 @@
 package com.example.presentation.room.util
 
-import com.example.domain.model.Room
+
 import com.example.domain.model.Rooms
 
 

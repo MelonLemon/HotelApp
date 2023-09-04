@@ -31,4 +31,5 @@
     <string name="fill_email">Вы неправильно заполнили почту!</string>
     <string name="fill_tourist">Проверьте данные туристов! Вы либо не заполнили все данные или заполнили некорректно!</string>
     <string name="pay">Оплатить</string>
+    <string name="intpassport_num">Загранпаспорт: серия и номер</string>
 </resources>

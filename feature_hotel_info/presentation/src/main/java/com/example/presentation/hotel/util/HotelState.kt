@@ -1,6 +1,6 @@
 package com.example.presentation.hotel.util
 
-import com.example.domain.model.AboutHotel
+
 import com.example.domain.model.HotelInfo
 
 data class HotelState(

@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -16,6 +17,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.common.components.TitleText
+import com.example.designsystem.theme.theme_figma_onSurfaceVariant
 import com.example.presentation.R
 
 @Composable
@@ -28,6 +30,7 @@ fun SuccessfulTransactionDisplay(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(
+            modifier=Modifier.size(94.dp),
             painter = painterResource(id = R.drawable.celebration),
             contentDescription = null)
         Spacer(modifier = Modifier.height(32.dp))
@@ -35,7 +38,7 @@ fun SuccessfulTransactionDisplay(
         Text(
             text= stringResource(R.string.order_text_first) +" №$orderNum " + stringResource(R.string.order_text_second),
             style = MaterialTheme.typography.bodyLarge,
-            color = MaterialTheme.colorScheme.outline,
+            color = theme_figma_onSurfaceVariant,
             textAlign = TextAlign.Center
         )
 

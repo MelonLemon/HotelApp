@@ -1,7 +1,5 @@
 package com.example.presentation.navigation
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.compose.runtime.getValue
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -23,7 +21,7 @@ fun NavController.navigateToHotel() {
     this.navigate(hotelRoute)
 }
 
-@RequiresApi(Build.VERSION_CODES.O)
+
 fun NavGraphBuilder.hotelScreen(
     toRoomScreen: () -> Unit
 ) {
@@ -39,10 +37,10 @@ fun NavGraphBuilder.hotelScreen(
 }
 
 fun NavController.navigateToRooms() {
-    this.navigate(hotelRoute)
+    this.navigate(roomRoute)
 }
 
-@RequiresApi(Build.VERSION_CODES.O)
+
 fun NavGraphBuilder.roomScreen(
     backToHotelScreen: () -> Unit,
     toBookingScreen: () -> Unit
@@ -59,7 +57,7 @@ fun NavGraphBuilder.roomScreen(
     }
 }
 
-@RequiresApi(Build.VERSION_CODES.O)
+
 fun NavGraphBuilder.hotelGraph(
     navController: NavController,
     toBookingScreen: () -> Unit

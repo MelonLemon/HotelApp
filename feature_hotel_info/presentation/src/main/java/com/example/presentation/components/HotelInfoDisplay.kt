@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
@@ -32,6 +33,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.common.components.BasicHotelInfo
@@ -41,6 +43,9 @@ import com.example.common.components.MarkedInfoDisplay
 import com.example.common.components.PhotosDisplay
 import com.example.common.components.TitleText
 import com.example.designsystem.theme.HotelAppTheme
+import com.example.designsystem.theme.theme_figma_container
+import com.example.designsystem.theme.theme_figma_onSurface
+import com.example.designsystem.theme.theme_figma_onSurfaceVariant
 import com.example.presentation.R
 
 @Composable
@@ -63,7 +68,7 @@ fun ForwardToNavigationRow(
             Icon(
                 imageVector = icon,
                 contentDescription = null,
-                tint = MaterialTheme.colorScheme.onBackground
+                tint = theme_figma_onSurface
             )
             Column(
                 verticalArrangement = Arrangement.spacedBy(2.dp),
@@ -72,12 +77,12 @@ fun ForwardToNavigationRow(
                 Text(
                     text=title,
                     style=MaterialTheme.typography.titleMedium,
-                    color=MaterialTheme.colorScheme.onBackground
+                    color=theme_figma_onSurface
                 )
                 Text(
                     text=subtitle,
                     style=MaterialTheme.typography.titleSmall,
-                    color=MaterialTheme.colorScheme.outline
+                    color=theme_figma_onSurfaceVariant
                 )
             }
         }
@@ -90,7 +95,7 @@ fun ForwardToNavigationRow(
             Icon(
                 imageVector = Icons.Default.KeyboardArrowRight,
                 contentDescription = null,
-                tint = MaterialTheme.colorScheme.onBackground
+                tint = theme_figma_onSurface
             )
         }
     }
@@ -116,6 +121,12 @@ fun MainHotelInfo(
             verticalArrangement = Arrangement.spacedBy(16.dp),
             horizontalAlignment = Alignment.Start
         ){
+            Text(
+                modifier=Modifier.fillMaxSize(),
+                text = stringResource(R.string.hotel),
+                textAlign = TextAlign.Center,
+                style = MaterialTheme.typography.titleMedium
+            )
             PhotosDisplay(
                 listOfPhotosString = listOfPhotosString,
                 pagerState = pagerState
@@ -173,14 +184,14 @@ fun HotelDetails(
                     subtitle = stringResource(R.string.essentials),
                     onBtnClick = { }
                 )
-                Divider(thickness = 1.dp, color = MaterialTheme.colorScheme.outlineVariant)
+                Divider(thickness = 1.dp, color = theme_figma_container)
                 ForwardToNavigationRow(
                     icon = ImageVector.vectorResource(id = R.drawable.ticksquare),
                     title = stringResource(R.string.included),
                     subtitle = stringResource(R.string.essentials),
                     onBtnClick = { }
                 )
-                Divider(thickness = 1.dp, color = MaterialTheme.colorScheme.outlineVariant)
+                Divider(thickness = 1.dp, color = theme_figma_container)
                 ForwardToNavigationRow(
                     icon = ImageVector.vectorResource(id = R.drawable.closesquare),
                     title = stringResource(R.string.not_included),

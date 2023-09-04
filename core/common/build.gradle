@@ -61,6 +61,7 @@ dependencies {
 
     implementation(project(":core:designsystem"))
 
+
     implementation 'androidx.lifecycle:lifecycle-runtime-compose:2.6.1'
     implementation "androidx.compose.foundation:foundation:1.4.3"
     implementation 'androidx.activity:activity-compose:1.7.2'

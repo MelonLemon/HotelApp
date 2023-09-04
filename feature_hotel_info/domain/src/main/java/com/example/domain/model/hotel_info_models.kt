@@ -40,8 +40,3 @@ data class Room (
     @SerializedName("image_urls") var imageUrls: ArrayList<String> = arrayListOf()
 
 )
-
-data class AboutHotel(
-    val description: String="",
-    val peculiarities: List<String> = emptyList()
-)

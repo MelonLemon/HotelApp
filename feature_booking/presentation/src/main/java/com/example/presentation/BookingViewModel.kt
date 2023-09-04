@@ -7,6 +7,7 @@ import com.example.domain.use_cases.BookingUseCases
 import com.example.presentation.util.BookingScreenEvents
 import com.example.presentation.util.BookingState
 import com.example.presentation.util.BookingUiEvents
+import com.example.presentation.util.TouristInfo
 import com.example.presentation.util.isValidTouristsInfo
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -40,7 +41,11 @@ class BookingViewModel @Inject constructor(
     fun bookingScreenEvents(event: BookingScreenEvents){
         when(event) {
             is BookingScreenEvents.AddNewTourist -> {
-
+                val newList = bookingState.value.listOfTourist.toMutableList()
+                newList.add(TouristInfo())
+                _bookingState.value = bookingState.value.copy(
+                    listOfTourist = newList
+                )
             }
             is BookingScreenEvents.OnPhoneChange -> {
                 _bookingState.value = bookingState.value.copy(

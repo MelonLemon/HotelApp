@@ -64,5 +64,16 @@ val md_theme_dark_surfaceTint = Color(0xFFB4C5FF)
 val md_theme_dark_outlineVariant = Color(0xFF45464F)
 val md_theme_dark_scrim = Color(0xFF000000)
 
-
 val seed = Color(0xFF3364E0)
+
+val theme_figma_primary = Color(0xFF0D72FF)
+val theme_figma_tint = Color(0xFFFFA800)
+val theme_figma_tint_transparent = Color(0xFFFFA800).copy(alpha=0.2f)
+val theme_figma_onSurfaceVariant = Color(0xFF828796)
+val theme_figma_onSurface = Color(0xFF2C3035)
+val theme_figma_surfaceVarient = Color(0xFFFBFBFC)
+val theme_figma_background = Color(0xFFF6F6F9)
+val theme_figma_onBackground = Color(0xFF000000)
+val theme_figma_container = Color(0xFFA9ABB7)
+val theme_figma_surface = Color(0xFFFFFFFF)
+val theme_figma_error = Color(0xFFEB5757).copy(alpha = 0.15f)
