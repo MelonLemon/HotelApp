@@ -13,7 +13,8 @@ We create di's (dagger-hilt)  in :core:data and :hotel_info:domain:, :booking:do
 
 [hotelAppStructure.pdf](https://github.com/MelonLemon/HotelApp/files/12513804/hotelAppStructure.pdf)
 
-![hotelAppStr](https://github.com/MelonLemon/HotelApp/assets/26432711/a157ef6e-2fcb-41d5-90ab-7b13e697c13b)
+![hotelAppStr](https://github.com/MelonLemon/HotelApp/assets/26432711/828af7b4-bc42-4dc7-a36d-f97f6d1a001c)
+
 
 
 # Navigation
