@@ -10,7 +10,9 @@ https://github.com/MelonLemon/HotelApp/assets/26432711/09022eef-e23b-45e8-93c0-c
 # Modularization
 We have two feature, presentation layer: hotel_info that has 2 screens - Hotel Screen and Room Screen; booking - has Booking Screen and Payment Screen.
 We create di's (dagger-hilt)  in :core:data and :hotel_info:domain:, :booking:domain. 
+
 [hotelAppStructure.pdf](https://github.com/MelonLemon/HotelApp/files/12513804/hotelAppStructure.pdf)
+
 
 # Navigation
 For navigation we create two graph for each feature:hotelGraph and bookingGraph. Navigation between screens of the same feature we implement inside graph. 
