@@ -18,19 +18,22 @@ We create di's (dagger-hilt)  in :core:data and :hotel_info:domain:, :booking:do
 
 
 # Navigation
-For navigation we create two graph for each feature:hotelGraph and bookingGraph. Navigation between screens of the same feature we implement inside graph. 
-Navigation between different feature implement in higher level - app level. 
+For navigation, I create two graphs for each feature: the hotel graph and the booking graph. Navigation between screens of the same feature is implemented inside graph. 
+Navigation between different features is implemented at a higher level (app level).
 
 # BackEnd
-As it's a test app we use mock data. We are using regrofit2 and Gson. We create HotelApiService with 3 functions. 
-They are suspend as we do not expect them to change - we fetch it's once at the start of activity. While it's loading, it shows progress bar. 
-As well, we do not make error-handling in use-cases (domain layer) as it's a mock data and we are sure that link is right and data in needed format and so on. 
+As it's a test app, we use mock data. I used regrofit2 and Gson. I created HotelApiService with three functions.
+They are suspended as we do not expect them to change; we fetch them once at the start of activity. While it's loading, it shows a progress bar.
+As well, we do not handle errors in use-cases (domain layer) as it's mock data and we are sure that the link is right and the data is in the needed format, and so on.
 
 # Components 
-I create coommon widgets to maintain same desing system and reduce writing code. 
-Unfortunately, app doesn't use materialtheme 3 theme properly as design I used do not apply it. 
-I create VisualTransformation functions for phone input and data input. 
-For mail, I create Launcheffect to detect when user do not write anything in the input. Otherwise, it checks is valid email and if it's not it paints in light red. 
+I create common widgets to maintain the same design system and reduce redundant code.
+Unfortunately, the app doesn't use the Material Theme 3 theme properly, as the design I used does not apply it.
+I create visual transformation functions for phone input and data input.
+For mail, I create a launch effect to detect when the user does not write anything in the input. Otherwise, it checks if it's a valid email, and if it's not, it paints it in light red.
+
+
+
 
 
 
