@@ -14,8 +14,8 @@ We create di's (dagger-hilt)  in :core:data and :hotel_info:domain:, :booking:do
 ![hotelApp_diagram](https://github.com/MelonLemon/HotelApp/assets/26432711/3eb2de10-942e-42ac-87de-058234b126e5)
 
 # Navigation
-For navigation, I create two graphs for each feature: the hotel graph and the booking graph. Navigation between screens of the same feature is implemented inside graph. 
-Navigation between different features is implemented at a higher level (app level).
+For navigation, I create two graphs for each feature: the hotel graph and the booking graph(presentation layer). Navigation between screens of the same feature is implemented inside graph. 
+Navigation between different features is implemented at a higher level (app layer).
 
 # BackEnd
 As it's a test app, we use mock data. I used regrofit2 and Gson. I created HotelApiService with three functions.
