@@ -10,8 +10,7 @@ https://github.com/MelonLemon/HotelApp/assets/26432711/09022eef-e23b-45e8-93c0-c
 I create common widgets to maintain the same design system and reduce redundant code.
 Unfortunately, the app doesn't use the Material Theme 3 theme properly, as the design I used does not apply it.
 I create visual transformation functions for phone input and data input.
-1. **For mail, I create a launch effect to detect when the user does not write anything in the input. Otherwise, it checks if it's a valid email, and if it's not, it paints it in light red. It changes in first load of data. If we needed to change only in first typing - we can add condition to launch effect to start only after the loading is done.**
-2. **Forgot add padding to flow row in two components.**
+
 
 # Modularization
 We have two feature, presentation layer: hotel_info that has 2 screens - Hotel Screen and Room Screen; booking - has Booking Screen and Payment Screen.
