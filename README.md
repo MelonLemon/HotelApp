@@ -4,7 +4,9 @@
 
 # Screenrecorder, Redmi Xiaomi
 
-https://github.com/MelonLemon/HotelApp/assets/26432711/09022eef-e23b-45e8-93c0-c8baef7d21e7
+https://github.com/MelonLemon/HotelApp/assets/26432711/3962dbdc-8d35-437b-981d-352f1ad47c69
+
+
 
 # Components 
 I create common widgets to maintain the same design system and reduce redundant code.
